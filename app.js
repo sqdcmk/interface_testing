@@ -1,7 +1,7 @@
 const Koa = require('koa')
 const app = new Koa()
-const Router =require('koa-router')
-const router=new Router();
+const Router = require('koa-router')
+const router = new Router();
 const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
@@ -10,22 +10,28 @@ const logger = require('koa-logger')
 const mongoose = require('mongoose')
 const index = require('./routes/index')
 const users = require('./routes/users')
-const keys=require('./config/config');
+const keys = require('./config/config');
+app.use(async (ctx, next) => {
+  ctx.set('Access-Control-Allow-Origin', '*');
+  await next();
+})
 // mongoose
-mongoose.connect(keys.mongodbUrl,{useNewUrlParser:true})
-.then(()=>{
-  console.log('数据库连接成功');
-})
-.catch(err=>{
-  console.log('数据库连接失败');
-  console.log(err);
-})
+mongoose.connect(keys.mongodbUrl, {
+    useNewUrlParser: true
+  })
+  .then(() => {
+    console.log('数据库连接成功');
+  })
+  .catch(err => {
+    console.log('数据库连接失败');
+    console.log(err);
+  })
 // error handler
 onerror(app)
 
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
@@ -46,8 +52,8 @@ app.use(async (ctx, next) => {
 
 // routes
 const finish = require('./routes/finish')
-router.use('/',index);
-router.use('/finish',finish);
+router.use('/', index);
+router.use('/finish', finish);
 app.use(router.routes()).use(router.allowedMethods());
 
 
