@@ -46,6 +46,7 @@ app.use(async (ctx, next) => {
 
 // routes
 const finish = require('./routes/finish')
+router.use('/',index);
 router.use('/finish',finish);
 app.use(router.routes()).use(router.allowedMethods());
 
