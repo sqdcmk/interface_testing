@@ -10,11 +10,13 @@ const logger = require('koa-logger')
 const mongoose = require('mongoose')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const cors=require('koa-cors');
 const keys = require('./config/config');
-app.use(async (ctx, next) => {
-  ctx.set('Access-Control-Allow-Origin', '*');
-  await next();
-})
+// app.use(async (ctx, next) => {
+//   ctx.set('Access-Control-Allow-Origin', '*');
+//   await next();
+// })
+app.use(cors());
 // mongoose
 mongoose.connect(keys.mongodbUrl, {
     useNewUrlParser: true
