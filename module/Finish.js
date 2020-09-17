@@ -10,10 +10,6 @@ const FinishSchema=new Schema({
         type:Array,
         require:true
     },
-    date:{
-        type:Date,
-        default:Date.now
-    },
 })
 
 module.exports =mongoose.model('FinishSchema',FinishSchema);
