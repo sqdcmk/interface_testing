@@ -537,11 +537,6 @@ ee-first@1.1.1:
   resolved "https://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-ejs@~2.3.3:
-  version "2.3.4"
-  resolved "https://registry.npm.taobao.org/ejs/download/ejs-2.3.4.tgz?cache=0&sync_timestamp=1597678506855&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fejs%2Fdownload%2Fejs-2.3.4.tgz#3c76caa09664b3583b0037af9dc136e79ec68b98"
-  integrity sha1-PHbKoJZks1g7ADevncE2557Gi5g=
-
 encodeurl@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/encodeurl/download/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
