@@ -10,6 +10,7 @@ const logger = require('koa-logger')
 const mongoose = require('mongoose')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const util=require('./routes/utils')
 const cors=require('koa-cors');
 const keys = require('./config/config');
 // app.use(async (ctx, next) => {
@@ -56,6 +57,7 @@ app.use(async (ctx, next) => {
 const finish = require('./routes/finish')
 router.use('/', index);
 router.use('/finish', finish);
+router.use('/util', util);
 app.use(router.routes()).use(router.allowedMethods());
 
 
